@@ -232,9 +232,9 @@ class USBDevice(USBDescribable):
         if req_type == USB.request_type_standard:
             handler_entity = recipient
         elif req_type == USB.request_type_class:
-            handler_entity = recipient.device_class
+            handler_entity = recipient.usb_class
         elif req_type == USB.request_type_vendor:
-            handler_entity = recipient.device_vendor
+            handler_entity = recipient.usb_vendor
 
         if not handler_entity:
             print(self.name, "invalid handler entity, stalling: {}".format(req))
