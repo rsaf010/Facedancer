@@ -1,5 +1,11 @@
 # FaceDancer 2.9
 
+this fork is an adaptation of facedancer tool to be used with GreatFET One board.
+it is mainly adapted to be used with numap to do USB class scan.
+Refer to the adapted numap tool : https://github.com/rsaf010/nu-map
+
+------------
+
 This repository houses the next generation of FaceDancer software. Descended from
 the original GoodFET-based FaceDancer, this repository provides a python module 
 that provides expanded FaceDancer support-- including support for multiple boards 
