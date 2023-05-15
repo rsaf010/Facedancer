@@ -497,22 +497,32 @@ class FacedancerBasicScheduler(object):
         """
         self.tasks.append(callback)
 
+    def exit_now(self):
+        """
+        Stop the scheduler on next loop.
+        """
+        self.do_exit = True
+
+
+    def _set_signal_handler(self):
+        '''
+        Replace the signal handler with self._exit_now
+        '''
+        import signal
+        signal.signal(signal.SIGINT, self.exit_now)
+
 
     def run(self):
         """
         Run the main scheduler stack.
         """
-
+        self._set_signal_handler()
         self.do_exit = False
         while not self.do_exit:
             for task in self.tasks:
                 task()
 
 
-    def stop(self):
-        """
-        Stop the scheduler on next loop.
-        """
-        self.do_exit = True
+
 
 
